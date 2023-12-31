@@ -3,12 +3,9 @@ import Dance from './images/dance.svg'
 import Futsal from './images/futsal.svg'
 import Pitch from './images/pitch.svg'
 import Beer from './images/beer.svg'
-
-import { GetAPI, GetAttendences, SHEET_DUE } from "./google.spread";
-import React, { useEffect, useState } from 'react';
-
-import { Attend } from "./attend";
-import {Match} from "./matchs";
+import Back from './images/back.svg'
+import React from 'react';
+import Map from './map'
 
 const Div = styled.div`
     display: grid;
@@ -67,69 +64,93 @@ const Title = styled.div`
 
 const AttendentBlock = styled.div`
     display: inline-flex;
-    padding: 10px;
+    padding: 9px;
     margin: 5px;
     background-color: lightblue;
 `
 
 const DisattendentBlock = styled.div`
     display: inline-flex;
-    padding: 10px;
+    padding: 9px;
     margin: 5px;
     background-color: lightgray;
 `
 
-function GetImage(match){
-    if(match.Type == "풋살"){
+const BackButton = styled.img`    
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+        background: cornflowerblue;
+        color: black;
+        transition: 0.5s;
+    }
+`
+
+function GetImage(match) {
+    if (match.Type == "풋살") {
         return Futsal;
     }
-    else if(match.Type == "축구"){        
+    else if (match.Type == "축구") {
         return Pitch;
     }
-    else if(match.Type == "야유회"){
+    else if (match.Type == "야유회") {
         return Dance;
     }
-    else if(match.Type == "회식"){
+    else if (match.Type == "회식") {
         return Beer;
     }
 
     return "";
 }
 
-export function MatchDetail(match, attendees, disattendees){
+export function MatchDetail(match, attendees, disattendees, { callback }) {
+
+    alert("map match detail");
 
     var datas1 = Array.from(attendees);
     var datas2 = Array.from(disattendees);
 
     return (
-        <Div>
-            <MainDiv>
-                <Image src={GetImage(match)} />
-                <Date>{match.DateTime}</Date>
-                <Place>{match.Location}</Place>
-                <Logcation>{match.Address}</Logcation>
-            </MainDiv>
-            <Title>참석 {datas1.length}명</Title>
-            <AttendDiv>
-                {datas1 && datas1.map(d => Attender(d))}
-            </AttendDiv>
-            <Title>불참 {datas2.length}명</Title>
-            <AttendDiv>
-                {datas2 && datas2.map(d => Disattender(d))}
-            </AttendDiv>
-        </Div>
+        <div>
+            <BackButton src={Back} hello={() => 
+            {
+                alert("-");
+                if (callback)
+                    callback();
+            }}/>
+            <Div>
+                <MainDiv>
+                    <Image src={GetImage(match)} />
+                    <Date>{match.DateTime}</Date>
+                    <Place>{match.Location}</Place>
+                    <Logcation>{match.Address}</Logcation>
+                </MainDiv>
+                <Map address={match} />
+                <Title>참석 {datas1.length}명</Title>
+                <AttendDiv>
+                    {datas1 && datas1.map(d => Attender(d))}
+                </AttendDiv>
+                <Title>불참 {datas2.length}명</Title>
+                <AttendDiv>
+                    {datas2 && datas2.map(d => Disattender(d))}
+                </AttendDiv>
+            </Div>
+        </div>
     )
 }
 
-function Attender(data){
+function Attender(data) {
     return (
         <AttendentBlock>{data.User}</AttendentBlock>
     )
 }
 
-function Disattender(data){
+function Disattender(data) {
     return (
         <DisattendentBlock>{data.User}</DisattendentBlock>
     )
 }
+
 

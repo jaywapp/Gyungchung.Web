@@ -87,7 +87,6 @@ export default function Matches() {
         atts.forEach(att => {
             if(att.Date == select.DateTime){
     
-                
                 if(att.Attendance == "참석")
                     group1.push(att);
                 else
@@ -95,7 +94,7 @@ export default function Matches() {
             }
         })
 
-        return MatchDetail(select, group1, group2);
+        return MatchDetail(select, group1, group2, () => onClick(null));
     }
     else {
         return (
