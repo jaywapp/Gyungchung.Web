@@ -89,12 +89,13 @@ async function Authenticate(name, email){
     var users = await GetUsers();
     var array = Array.from(users);
 
+    var result= false;
+
     array.forEach(user => {
-        if(user[0] == name && user[1] == email)
-            return true;
+        result = result || (user.Name == name && user.Email == email);
     });
 
-    return false;
+    return result;
 }
 
 function Login({callBack}) {
@@ -109,12 +110,12 @@ function Login({callBack}) {
         setEmail(e.target.value)
     }
 
-    const onClickLogin = () => {
-        var result = Authenticate(name, email);
+    const afterLogin = (e) => {
+       
+        if(e){
+            alert("로그인에 성공하였습니다.\n이름 : "+name+" 이메일 : "+email);        
 
-        if(result){
-            alert("로그인 성공!");            
-            window.sessionStorage.setItem("name", name);
+            window.sessionStorage.setItem("user", name);
             window.sessionStorage.setItem("email", email);
 
             callBack();
@@ -122,7 +123,11 @@ function Login({callBack}) {
         else{
             alert("로그인 실패!");
         }
-         
+    }
+
+    const onClickLogin = () => {
+        Authenticate(name, email)
+            .then((r) => afterLogin(r));
     }
 
     useEffect(() => {

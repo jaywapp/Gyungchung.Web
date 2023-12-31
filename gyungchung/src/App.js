@@ -19,10 +19,18 @@ const DASHBOARD = "dashboard";
 const MATCHES = "matches";
 const DUES = "dues";
 
-const Div = styled.div`
+const LoginDiv = styled.div`
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;  
+`
+
+const ContentDiv = styled.div`
+  max-width: 600px;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;  
+  margin-bottom: 70px;
 `
 
 const Image = styled.img`
@@ -35,10 +43,8 @@ function App() {
   const [content, setContent] = useState('');
 
   const loginCallback = () => {
-    var name = sessionStorage.getItem("name");
+    var name = sessionStorage.getItem("user");
     var email = sessionStorage.getItem("email");
-
-    alert(name + "/" + email);
 
     var l = name != null && name != ""
       && email != null && email != "";
@@ -70,14 +76,14 @@ function App() {
 
   if (!login) {
     return (
-      <Div>
+      <LoginDiv>
         <Login callBack={loginCallback} />
-      </Div>
+      </LoginDiv>
     );
   }
   else {
     return (
-      <Div>
+      <ContentDiv>
         {GetContent(content)}
         <BottomNavigation
           items={bottomNavItems}
@@ -85,7 +91,7 @@ function App() {
           activeBgColor="#2196F3"
           activeTextColor="white"
         />
-      </Div>
+      </ContentDiv>
     )
   }
 }
