@@ -4,8 +4,10 @@ import Futsal from './images/futsal.svg'
 import Pitch from './images/pitch.svg'
 import Beer from './images/beer.svg'
 import Back from './images/back.svg'
-import React from 'react';
-import Map from './map'
+import { Map } from './map'
+import React, { useEffect, useState } from 'react';
+
+const { kakao } = window;
 
 const Div = styled.div`
     display: grid;
@@ -107,8 +109,6 @@ function GetImage(match) {
 
 export function MatchDetail(match, attendees, disattendees, { callback }) {
 
-    alert("map match detail");
-
     var datas1 = Array.from(attendees);
     var datas2 = Array.from(disattendees);
 
@@ -127,7 +127,7 @@ export function MatchDetail(match, attendees, disattendees, { callback }) {
                     <Place>{match.Location}</Place>
                     <Logcation>{match.Address}</Logcation>
                 </MainDiv>
-                <Map address={match} />
+                <Map match={match} />
                 <Title>참석 {datas1.length}명</Title>
                 <AttendDiv>
                     {datas1 && datas1.map(d => Attender(d))}
