@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
-import Complate from './images/complate.svg'
-import Cancel from './images/cancel.svg'
+import Complate from './../images/complate.svg'
+import Cancel from './../images/cancel.svg'
 
 const Div = styled.div`
     height: 50px;

@@ -1,7 +1,7 @@
 import logo from './logo.png';
 import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
-import { GetUsers } from './google.spread';
+import { GetUsers } from './google/google.spread.user';
 
 const Div = styled.div`
     margin-top: 40%;

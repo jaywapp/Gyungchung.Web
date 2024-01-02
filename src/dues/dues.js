@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { GetAPI, GetDuesAtUser, SHEET_DUE } from "./google.spread";
+import { GetDuesAtUser } from "../google/google.spread.dues";
 import React, { useEffect, useState } from 'react';
 import { Due } from "./due";
-import { Account } from "./account";
+import { Account } from "../account";
 
-import Good from './images/good.svg'
-import Bad from './images/bad.svg'
-
+import Good from './../images/good.svg'
+import Bad from './../images/bad.svg'
 
 const Div = styled.div`
 `;
@@ -61,18 +60,10 @@ export default function Dues() {
     var email = sessionStorage.getItem("email");
 
     const [dues, setDues] = useState(false);
-    const [payment, setPayment] = useState(false);
 
     const onRendering = async () => {
         await GetDuesAtUser(user)
-            .then(r=>
-                {
-                    var d = Array.from(r);
-                    var p = CheckPayment(d);
-
-                    setDues(d);
-                    setPayment(p);
-                });
+            .then(r=> setDues(r));
     }
     
     useEffect(() => {
@@ -81,6 +72,7 @@ export default function Dues() {
     [])
 
     var datas = Array.from(dues);
+    var payment = CheckPayment(datas);
 
     return (
         <Div>

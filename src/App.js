@@ -1,11 +1,14 @@
 import Login from './login'
 import styled from 'styled-components';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
+import { useNavigate } from 'react-router-dom';
 import { BottomNavigation } from "reactjs-bottom-navigation";
 
 import Dashboard from './dashboard';
-import Matches from './matchs';
-import Dues from './dues';
+import Matchs from './match/matchs';
+import Match from './match/match';
+import Dues from './dues/dues';
 
 import CalendarImage from './images/calendar.svg'
 import MoneyImage from './images/money.svg'
@@ -13,14 +16,11 @@ import DashboardImage  from './images/dashboard.svg'
 
 import WhiteCalendarImage from './images/calendar_white.svg'
 import WhiteMoneyImage from './images/money_white.svg'
-import WhiteDashboardImage  from './images/dashboard_white.svg'
-
-const DASHBOARD = "dashboard";
-const MATCHES = "matches";
-const DUES = "dues";
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 const LoginDiv = styled.div`
-  max-width: 400px;
+  max-width: 300px;
   margin-left: auto;
   margin-right: auto;  
 `
@@ -39,8 +39,9 @@ const Image = styled.img`
 
 function App() {
 
+  const navigate = useNavigate();
+
   const [login, setLogin] = useState(false);
-  const [content, setContent] = useState('');
 
   const loginCallback = () => {
     var name = sessionStorage.getItem("user");
@@ -52,25 +53,24 @@ function App() {
     setLogin(l);
   }
 
-
-  const bottomNavItems = [
+  var bottomNavItems = [
     {
       title: "대시보드",
       icon: <Image src={DashboardImage}/>,
       activeIcon: <Image src={WhiteCalendarImage}/>,
-      onClick: () => { setContent(DASHBOARD) },
+      onClick: () => { navigate('/') },
     },
     {
       title: "일정",
       icon: <Image src={CalendarImage}/>,
       activeIcon: <Image src={WhiteCalendarImage}/>,
-      onClick: () => { setContent(MATCHES) },
+      onClick: () => { navigate('/matches') },
     },
     {
       title: "회비",
       icon: <Image src={MoneyImage}/>,
       activeIcon: <Image src={WhiteMoneyImage}/>,
-      onClick: () => { setContent(DUES) },
+      onClick: () => { navigate('/dues') },
     },
   ];
 
@@ -84,7 +84,13 @@ function App() {
   else {
     return (
       <ContentDiv>
-        {GetContent(content)}
+
+        <Routes>
+          <Route path="/" exact element={<Dashboard/>} />
+          <Route path="/matches" exact element={<Matchs/>} />
+          <Route path="/match/:id" exact element={<Match/>}/>
+          <Route path="/dues" exact element={<Dues/>} />
+        </Routes>
         <BottomNavigation
           items={bottomNavItems}
           selected={0}
@@ -94,20 +100,6 @@ function App() {
       </ContentDiv>
     )
   }
-}
-
-function GetContent(content) {
-  if (content == DASHBOARD) {
-    return (<Dashboard />);
-  }
-  else if (content == MATCHES) {
-    return (<Matches />);
-  }
-  else if (content == DUES) {
-    return (<Dues />);
-  }
-
-  return null;
 }
 
 export default App;
