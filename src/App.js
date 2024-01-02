@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { BottomNavigation } from "reactjs-bottom-navigation";
 
-import Dashboard from './dashboard';
+import Home from './home';
 import Matchs from './match/matchs';
 import Match from './match/match';
 import Dues from './dues/dues';
@@ -59,7 +59,7 @@ function App() {
 
   var bottomNavItems = [
     {
-      title: "대시보드",
+      title: "홈",
       icon: <Image src={DashboardImage}/>,
       activeIcon: <Image src={WhiteCalendarImage}/>,
       onClick: () => { navigate('/') },
@@ -73,7 +73,7 @@ function App() {
     {
       title: "출석",
       icon: <Image src={AttendanceImage}/>,
-      activeIcon: <Image src={WhiteAttendanceImage}/>,
+      activeIcon: <Image src={WhiteCalendarImage}/>,
       onClick: () => { navigate('/attendance') },
     },
     {
@@ -96,7 +96,7 @@ function App() {
       <ContentDiv>
 
         <Routes>
-          <Route path="/" exact element={<Dashboard/>} />
+          <Route path="/" exact element={<Home/>} />
           <Route path="/matches" exact element={<Matchs/>} />
           <Route path="/match/:id" exact element={<Match/>}/>
           <Route path="/attendance" export element={<Attendances/>}/>
