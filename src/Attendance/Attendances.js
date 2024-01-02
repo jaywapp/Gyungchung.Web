@@ -47,7 +47,7 @@ const ColumnDiv = styled.div`
     margin-bottom: 10px;
     background-color: beige;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
 `
 
 const AttendanceDiv = styled.div`
@@ -58,7 +58,7 @@ const AttendanceDiv = styled.div`
     color: ${props => props.color || 'black'};
     margin-bottom: 10px;
     border-bottom: solid 0.1px lightgray;
-    font-size: 20px;
+    font-size: 18px;
 `
 
 const DateDiv = styled.div`
