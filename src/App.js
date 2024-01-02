@@ -9,10 +9,14 @@ import Dashboard from './dashboard';
 import Matchs from './match/matchs';
 import Match from './match/match';
 import Dues from './dues/dues';
+import Attendances from './Attendance/Attendances';
 
 import CalendarImage from './images/calendar.svg'
 import MoneyImage from './images/money.svg'
 import DashboardImage  from './images/dashboard.svg'
+
+import AttendanceImage from './images/user.svg'
+import WhiteAttendanceImage from './images/user_whtie.svg'
 
 import WhiteCalendarImage from './images/calendar_white.svg'
 import WhiteMoneyImage from './images/money_white.svg'
@@ -67,6 +71,12 @@ function App() {
       onClick: () => { navigate('/matches') },
     },
     {
+      title: "출석",
+      icon: <Image src={AttendanceImage}/>,
+      activeIcon: <Image src={WhiteAttendanceImage}/>,
+      onClick: () => { navigate('/attendance') },
+    },
+    {
       title: "회비",
       icon: <Image src={MoneyImage}/>,
       activeIcon: <Image src={WhiteMoneyImage}/>,
@@ -89,6 +99,7 @@ function App() {
           <Route path="/" exact element={<Dashboard/>} />
           <Route path="/matches" exact element={<Matchs/>} />
           <Route path="/match/:id" exact element={<Match/>}/>
+          <Route path="/attendance" export element={<Attendances/>}/>
           <Route path="/dues" exact element={<Dues/>} />
         </Routes>
         <BottomNavigation
