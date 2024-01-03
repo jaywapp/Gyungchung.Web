@@ -49,6 +49,7 @@ function App() {
   const [login, setLogin] = useState(false);
 
   const loginCallback = () => {
+    navigate('/');
     setLogin(true);
   }
 
