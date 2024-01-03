@@ -5,14 +5,21 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { Map } from '../map'
 import React, { useEffect, useState } from 'react';
+import { ToDateParameter } from "../common";
 
 import Dance from './../images/dance.svg'
 import Futsal from './../images/futsal.svg'
 import Pitch from './../images/pitch.svg'
 import Beer from './../images/beer.svg'
 import Back from './../images/back.svg'
+import Edit from './../images/edit.svg'
 
 const { kakao } = window;
+
+const HeaderDiv = styled.div`
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+`;
 
 const Div = styled.div`
     display: grid;
@@ -84,9 +91,24 @@ const DisattendentBlock = styled.div`
 `
 
 const BackButton = styled.img`    
+    grid-column: 1;
     margin-top: 5px;
     width: 40px;
     height: 40px;
+
+    &:hover {
+        background: cornflowerblue;
+        color: black;
+        transition: 0.5s;
+    }
+`
+
+const EditButton = styled.img`    
+    grid-column: 3;
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
+    visibility: ${(props) => props.role == "admin" ? 'visible' : 'collapse'};
 
     &:hover {
         background: cornflowerblue;
@@ -139,6 +161,10 @@ export default function Match(props) {
         navigate('/matches');
     }
 
+    const onEditClick = () => {
+        navigate('/match/edit/' + id);
+    }
+
     useEffect(() => {
         onRendering();
     },
@@ -160,7 +186,11 @@ export default function Match(props) {
 
     return (
         <div>
-            <BackButton src={Back} onClick={onBackClick} />
+            <HeaderDiv>
+                <BackButton src={Back} onClick={onBackClick} />
+                <EditButton src={Edit} onClick={onEditClick} 
+                            role={window.sessionStorage.getItem("role")}/>
+            </HeaderDiv>
             <Div>
                 <MainDiv>
                     <Image src={GetImage(match)} />

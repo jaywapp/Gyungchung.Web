@@ -17,7 +17,7 @@ export function GetAPISheetRange(sheet, startCol, startRow, endCol, endRow) {
     return `${GOOGLE_SHEET_BASE_URL}/${ID}/values//${GetRange(sheet, startCol, startRow, endCol, endRow)}`;
 }
  
-function GetRange(sheet, startColumn, startRow, endColumn, endRow) {
+export function GetRange(sheet, startColumn, startRow, endColumn, endRow) {
     return `$'${sheet}'!${GetChar(startColumn)}${startRow}:${GetChar(endColumn)}${endRow}`;
 }
 

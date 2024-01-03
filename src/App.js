@@ -8,6 +8,7 @@ import { BottomNavigation } from "reactjs-bottom-navigation";
 import Home from './home';
 import Matchs from './match/matchs';
 import Match from './match/match';
+import EditMatch from './match/editmatch';
 import Dues from './dues/dues';
 import Attendances from './Attendance/Attendances';
 
@@ -93,6 +94,7 @@ function App() {
           <Route path="/" exact element={<Home/>} />
           <Route path="/matches" exact element={<Matchs/>} />
           <Route path="/match/:id" exact element={<Match/>}/>
+          <Route path="/match/edit/:id" exact element={<EditMatch/>}/>
           <Route path="/attendance" export element={<Attendances/>}/>
           <Route path="/dues" exact element={<Dues/>} />
         </Routes>

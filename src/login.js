@@ -1,7 +1,7 @@
 import logo from './logo.png';
 import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
-import { GetUsers } from './google/google.spread.user';
+import { GetUsers, GetUsersByInput } from './google/google.spread.user';
 
 const Div = styled.div`
     margin-top: 40%;
@@ -86,16 +86,26 @@ const Button = styled.button`
 
 async function Authenticate(name, phone){
     
-    var users = await GetUsers();
-    var array = Array.from(users);
+    var user = await GetUsersByInput(name, phone);
 
-    var result= false;
+    if(user == null)
+        return false;
 
-    array.forEach(user => {
-        result = result || (user.Name == name && user.Phone == phone);
-    });
+    window.sessionStorage.setItem("user", user.Name);
+    window.sessionStorage.setItem("phone", user.Phone);
+    // window.sessionStorage.setItem("role", user.Role);
 
-    return result;
+    return true;
+    // var users = await GetUsers();
+    // var array = Array.from(users);
+
+    // var result= false;
+
+    // array.forEach(user => {
+    //     result = result || (user.Name == name && user.Phone == phone);
+    // });
+
+    // return result;
 }
 
 function Login({callBack}) {

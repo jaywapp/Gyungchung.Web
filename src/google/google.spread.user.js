@@ -35,3 +35,34 @@ export async function GetUsers() {
     return arr;
 };
 
+export async function GetUsersByInput(name, phone) {
+    var uri = GetAPI(SHEET_USERS);
+    const response = await axios.get(uri);
+
+    if (response.status !== 200) {
+        throw new Error();
+    }
+
+    var arr = new Array();
+    var values = Array.from(response.data.values);
+    var idx = 0;
+
+    values.forEach(value => {
+        if (idx != 0 && value[0] == name && value[1] == phone) {
+            var user = {
+                "Name": value[0],
+                "Phone": value[1],
+                "Role": value[2],
+            };
+
+            arr.push(user);
+        }
+        idx++;
+    });
+
+    if(arr.length == 1)
+        return arr[0];
+    else
+        return null;
+};
+

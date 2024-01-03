@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
+    "react-widgets": "^5.8.4",
     "reactjs-bottom-navigation": "^2.0.5",
     "rmc-tabs": "^1.2.29",
     "styled-components": "^6.1.6",
