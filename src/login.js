@@ -84,7 +84,7 @@ const Button = styled.button`
   }
 `
 
-async function Authenticate(name, email){
+async function Authenticate(name, phone){
     
     var users = await GetUsers();
     var array = Array.from(users);
@@ -92,7 +92,7 @@ async function Authenticate(name, email){
     var result= false;
 
     array.forEach(user => {
-        result = result || (user.Name == name && user.Email == email);
+        result = result || (user.Name == name && user.Phone == phone);
     });
 
     return result;
@@ -100,14 +100,14 @@ async function Authenticate(name, email){
 
 function Login({callBack}) {
     const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
 
     const handleName = (e) => {
         setName(e.target.value)
     }
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
+    const handlePhone = (e) => {
+        setPhone(e.target.value)
     }
 
     const afterLogin = (e) => {
@@ -116,7 +116,7 @@ function Login({callBack}) {
             alert("로그인에 성공하였습니다.");        
 
             window.sessionStorage.setItem("user", name);
-            window.sessionStorage.setItem("email", email);
+            window.sessionStorage.setItem("phone", phone);
 
             callBack();
         }
@@ -126,7 +126,7 @@ function Login({callBack}) {
     }
 
     const onClickLogin = () => {
-        Authenticate(name, email)
+        Authenticate(name, phone)
             .then((r) => afterLogin(r));
     }
 
@@ -144,8 +144,8 @@ function Login({callBack}) {
                 <Label1 htmlFor='input_name'>이름</Label1>
                 <Input1 type='text' name='input_name' value={name} onChange={handleName} />
                 <Seperator2 />
-                <Label2 htmlFor='input_email'>이메일</Label2>
-                <Input2 type='text' name='input_pw' value={email} onChange={handleEmail} />
+                <Label2 htmlFor='input_phone'>번호</Label2>
+                <Input2 type='text' name='input_phone' value={phone} onChange={handlePhone} />
                 <Seperator3 />
                 <Button type='button' onClick={onClickLogin}>Login</Button>
             </GridDiv>

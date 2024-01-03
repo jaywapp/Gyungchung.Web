@@ -76,7 +76,7 @@ function App() {
       activeIcon: <Image src={WhiteMoneyImage}/>,
       onClick: () => { navigate('/dues') },
     },
-  ];
+  ]; 
 
   if (!login) {
     return (

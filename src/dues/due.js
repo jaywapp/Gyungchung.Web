@@ -29,7 +29,6 @@ const Content = styled.div`
 `
 
 export function Due(due){
-    alert(due.Payment)
     return (
         <Div>
             <Image src={(due.Payment == "납부") ? Complate : Cancel}/> 

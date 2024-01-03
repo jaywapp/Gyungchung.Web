@@ -22,7 +22,7 @@ export async function GetUsers() {
         else {
             var user = {
                 "Name": value[0],
-                "Email": value[1],
+                "Phone": value[1],
                 "Role": value[2],
             };
 
