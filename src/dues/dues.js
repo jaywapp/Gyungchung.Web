@@ -36,6 +36,13 @@ const WelcomeMsg = styled.div`
     font-size: x-large;
 `;
 
+const WelcomeSubMsg = styled.div`
+    grid-column: 2;
+    margin-top: 10px;
+    font-size: large;
+    text-decoration: underline;
+`;
+
 const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -129,6 +136,9 @@ function WelcomMessage(payment){
             <WelcomeMsg>
                 {msg}
             </WelcomeMsg>
+            <WelcomeSubMsg>
+            (지난 2023년 회비가 반영되지 않은 결과입니다.)
+            </WelcomeSubMsg>
         </WelcomDiv>
     )
 }
