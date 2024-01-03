@@ -1,6 +1,6 @@
 import Login from './login'
 import styled from 'styled-components';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useNavigate } from 'react-router-dom';
 import { BottomNavigation } from "reactjs-bottom-navigation";
@@ -48,13 +48,7 @@ function App() {
   const [login, setLogin] = useState(false);
 
   const loginCallback = () => {
-    var name = sessionStorage.getItem("user");
-    var email = sessionStorage.getItem("email");
-
-    var l = name != null && name != ""
-      && email != null && email != "";
-
-    setLogin(l);
+    setLogin(true);
   }
 
   var bottomNavItems = [

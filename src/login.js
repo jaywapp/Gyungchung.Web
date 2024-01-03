@@ -113,7 +113,7 @@ function Login({callBack}) {
     const afterLogin = (e) => {
        
         if(e){
-            alert("로그인에 성공하였습니다.\n이름 : "+name+" 이메일 : "+email);        
+            alert("로그인에 성공하였습니다.");        
 
             window.sessionStorage.setItem("user", name);
             window.sessionStorage.setItem("email", email);

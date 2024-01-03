@@ -31,7 +31,7 @@ const Content = styled.div`
 export function Due(due){
     return (
         <Div>
-            <Image src={(due.Payment == "True") ? Complate : Cancel}/> 
+            <Image src={(due.Payment == "납부") ? Complate : Cancel}/> 
             <Content>{due.Month}월</Content>
         </Div>
     )
