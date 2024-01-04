@@ -142,6 +142,8 @@ export default function Match(props) {
     const { id } = useParams();
     var date = id;
 
+    alert("id : " + id);
+
     const [match, setMatch] = useState(false);
     const [attendences, setAttendences] = useState(false);
 
@@ -151,6 +153,7 @@ export default function Match(props) {
 
         await GetMatchAtDate(date)
             .then(match => {
+                alert("match : " + match.DateTime);
                 setMatch(match);
                 InitializeMap(match);
             });
@@ -185,7 +188,7 @@ export default function Match(props) {
         }
     })
 
-    alert(match.DateTime + "/" + match.Location + "/" + match.address);
+    
     
     return (
         <div>
