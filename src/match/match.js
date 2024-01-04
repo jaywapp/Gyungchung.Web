@@ -152,7 +152,7 @@ export default function Match(props) {
         await GetMatchAtDate(date)
             .then(match => {
                 setMatch(match);
-                // InitializeMap(match);
+                InitializeMap(match);
             });
         await GetAttendencesAtDate(date)
             .then(atts => setAttendences(atts));
@@ -187,11 +187,11 @@ export default function Match(props) {
 
     return (
         <div>
-            <HeaderDiv>
+            {/* <HeaderDiv>
                 <BackButton src={Back} onClick={onBackClick} />
                 <EditButton src={Edit} onClick={onEditClick}
                     role={window.sessionStorage.getItem("role")} />
-            </HeaderDiv>
+            </HeaderDiv> */}
             <Div>
                 <MainDiv>
                     <Image src={GetImage(match)} />
@@ -199,7 +199,7 @@ export default function Match(props) {
                     <Place>{match.Location}</Place>
                     <Logcation>{match.Address}</Logcation>
                 </MainDiv>
-                {/* <Map match={match} /> */}
+                <Map match={match} />
                 <Title>참석 {datas1.length}명</Title>
                 <AttendDiv>
                     {datas1 && datas1.map(d => Attender(d))}
