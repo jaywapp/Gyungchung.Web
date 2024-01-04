@@ -194,7 +194,7 @@ export default function Match(props) {
             </HeaderDiv>
             <Div>
                 <MainDiv>
-                    <Image src={GetImage(match)} />
+                    {/* <Image src={GetImage(match)} /> */}
                     <Date>{match.DateTime}</Date>
                     <Place>{match.Location}</Place>
                     <Logcation>{match.Address}</Logcation>
