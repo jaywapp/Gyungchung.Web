@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { GetMatchAtDate } from "../google/google.spread.match"
 import { GetAttendencesAtDate } from "../google/google.spread.attend";
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Map } from '../map'
 import React, { useEffect, useState } from 'react';
 import { ToDateParameter } from "../common";
@@ -142,8 +141,6 @@ export default function Match(props) {
     const { id } = useParams();
     var date = id;
 
-    alert("id : " + id);
-
     const [match, setMatch] = useState(false);
     const [attendences, setAttendences] = useState(false);
 
@@ -153,7 +150,6 @@ export default function Match(props) {
 
         await GetMatchAtDate(date)
             .then(match => {
-                alert("match : " + match.DateTime);
                 setMatch(match);
                 InitializeMap(match);
             });
