@@ -194,10 +194,10 @@ export default function Match(props) {
             </HeaderDiv>
             <Div>
                 <div>
-                    <Image src={GetImage(match)} />
+                    {/* <Image src={GetImage(match)} />
                     <Date>{match.DateTime}</Date>
                     <Place>{match.Location}</Place>
-                    <Logcation>{match.Address}</Logcation>
+                    <Logcation>{match.Address}</Logcation> */}
                 </div>
                 <Map match={match} />
                 <Title>참석 {datas1.length}명</Title>
