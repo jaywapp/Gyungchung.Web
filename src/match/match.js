@@ -184,7 +184,7 @@ export default function Match(props) {
         }
     })
 
-    alert("match : " + match.DateTime + " / " + match.Location + " / " + match.address + " / " + datas1.length + " / " + datas2.length);
+    alert(date);
     
     return (
         <div>
