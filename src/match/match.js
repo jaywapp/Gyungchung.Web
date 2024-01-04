@@ -120,18 +120,18 @@ const EditButton = styled.img`
 `
 
 function GetImage(match) {
-    if (match.Type == "풋살") {
-        return Futsal;
-    }
-    else if (match.Type == "축구") {
-        return Pitch;
-    }
-    else if (match.Type == "야유회") {
-        return Dance;
-    }
-    else if (match.Type == "회식") {
-        return Beer;
-    }
+    // if (match.Type == "풋살") {
+    //     return Futsal;
+    // }
+    // else if (match.Type == "축구") {
+    //     return Pitch;
+    // }
+    // else if (match.Type == "야유회") {
+    //     return Dance;
+    // }
+    // else if (match.Type == "회식") {
+    //     return Beer;
+    // }
 
     return "";
 }
@@ -193,12 +193,12 @@ export default function Match(props) {
                     role={window.sessionStorage.getItem("role")} />
             </HeaderDiv>
             <Div>
-                {/* <MainDiv>
+                <MainDiv>
                     <Image src={GetImage(match)} />
                     <Date>{match.DateTime}</Date>
                     <Place>{match.Location}</Place>
                     <Logcation>{match.Address}</Logcation>
-                </MainDiv> */}
+                </MainDiv>
                 <Map match={match} />
                 <Title>참석 {datas1.length}명</Title>
                 <AttendDiv>
