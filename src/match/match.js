@@ -199,7 +199,7 @@ export default function Match(props) {
                     <Place>{match.Location}</Place>
                     <Logcation>{match.Address}</Logcation>
                 </MainDiv>
-                <Map match={match} />
+                {/* <Map match={match} /> */}
                 <Title>참석 {datas1.length}명</Title>
                 <AttendDiv>
                     {datas1 && datas1.map(d => Attender(d))}
