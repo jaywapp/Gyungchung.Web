@@ -184,8 +184,6 @@ export default function Match() {
         }
     })
 
-    alert(date);
-    
     return (
         <div>
             <HeaderDiv>

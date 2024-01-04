@@ -72,10 +72,7 @@ export default function Matches() {
     var datas = Array.from(matches);
 
     function onClick(m) {
-        alert("test : " + m.DateTime);
-        var id = ToDateParameter(m.DateTime);
-
-        navigate('/match/'+ id)
+        navigate('/match/'+ ToDateParameter(m.DateTime))
     }
 
     return (
