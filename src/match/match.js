@@ -136,10 +136,10 @@ function GetImage(match) {
 }
 
 
-export default function Match(props) {
+export default function Match() {
 
-    const { id } = useParams();
-    var date = id;
+    var params = useParams();
+    var date = params.id;
 
     const [match, setMatch] = useState(false);
     const [attendences, setAttendences] = useState(false);
@@ -162,7 +162,7 @@ export default function Match(props) {
     }
 
     const onEditClick = () => {
-        navigate('/match/edit/' + id);
+        navigate('/match/edit/' + date);
     }
 
     useEffect(() => {
