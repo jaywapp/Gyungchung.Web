@@ -185,6 +185,8 @@ export default function Match(props) {
         }
     })
 
+    alert(match.DateTime + "/" + match.Location + "/" + match.address);
+    
     return (
         <div>
             <HeaderDiv>
@@ -193,12 +195,12 @@ export default function Match(props) {
                     role={window.sessionStorage.getItem("role")} />
             </HeaderDiv>
             <Div>
-                <div>
-                    {/* <Image src={GetImage(match)} />
+                <MainDiv>
+                    <Image src={GetImage(match)} />
                     <Date>{match.DateTime}</Date>
                     <Place>{match.Location}</Place>
-                    <Logcation>{match.Address}</Logcation> */}
-                </div>
+                    <Logcation>{match.Address}</Logcation>
+                </MainDiv>
                 <Map match={match} />
                 <Title>참석 {datas1.length}명</Title>
                 <AttendDiv>
