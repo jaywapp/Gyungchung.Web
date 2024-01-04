@@ -187,12 +187,12 @@ export default function Match(props) {
 
     return (
         <div>
-            {/* <HeaderDiv>
+            <HeaderDiv>
                 <BackButton src={Back} onClick={onBackClick} />
                 <EditButton src={Edit} onClick={onEditClick}
                     role={window.sessionStorage.getItem("role")} />
-            </HeaderDiv> */}
-            <Div>
+            </HeaderDiv>
+            {/* <Div>
                 <MainDiv>
                     <Image src={GetImage(match)} />
                     <Date>{match.DateTime}</Date>
@@ -208,7 +208,7 @@ export default function Match(props) {
                 <AttendDiv>
                     {datas2 && datas2.map(d => Disattender(d))}
                 </AttendDiv>
-            </Div>
+            </Div> */}
         </div>
     )
 }
