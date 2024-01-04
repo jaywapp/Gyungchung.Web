@@ -2,18 +2,16 @@ export function ToDateParameter(date){
 
     var str = "";
 
-    var year = date.getFullYear();
-    var day = date.getDate();
-    var month = date.getMonth();
+    var arr = Array.from(date.toString().split('.'));
 
-    str += year;
-    if(month < 10)
-        str += 0;
-    str += month;
+    arr.forEach(i => {
+        var trimed = i.toString().trim();
 
-    if(day < 10)
-        str += 0;
-    str += day;
+        if(trimed.length < 2)
+            str += "0";
+
+        str += trimed;
+    })
 
     return str;
 }

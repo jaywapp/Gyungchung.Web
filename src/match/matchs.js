@@ -73,7 +73,6 @@ export default function Matches() {
 
     function onClick(m) {
         var id = ToDateParameter(m.DateTime);
-        alert(id);
         navigate('/match/'+ id)
     }
 
