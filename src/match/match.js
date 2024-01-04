@@ -152,7 +152,7 @@ export default function Match(props) {
         await GetMatchAtDate(date)
             .then(match => {
                 setMatch(match);
-                InitializeMap(match);
+                // InitializeMap(match);
             });
         await GetAttendencesAtDate(date)
             .then(atts => setAttendences(atts));
