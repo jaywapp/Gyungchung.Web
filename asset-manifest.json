@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Gyungchung.Web/static/css/main.1b89ea02.css",
-    "main.js": "/Gyungchung.Web/static/js/main.111470c0.js",
+    "main.js": "/Gyungchung.Web/static/js/main.aa25c098.js",
     "static/js/787.2b8a2760.chunk.js": "/Gyungchung.Web/static/js/787.2b8a2760.chunk.js",
     "static/media/logo.png": "/Gyungchung.Web/static/media/logo.2d154db55a1b0d25b9ad.png",
     "static/media/bad.svg": "/Gyungchung.Web/static/media/bad.a51a2252f9ebdbb2f65eed536700cecf.svg",
@@ -24,11 +24,11 @@
     "static/media/back.svg": "/Gyungchung.Web/static/media/back.54697fc843d6a5c596c721c91ba2fa27.svg",
     "index.html": "/Gyungchung.Web/index.html",
     "main.1b89ea02.css.map": "/Gyungchung.Web/static/css/main.1b89ea02.css.map",
-    "main.111470c0.js.map": "/Gyungchung.Web/static/js/main.111470c0.js.map",
+    "main.aa25c098.js.map": "/Gyungchung.Web/static/js/main.aa25c098.js.map",
     "787.2b8a2760.chunk.js.map": "/Gyungchung.Web/static/js/787.2b8a2760.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b89ea02.css",
-    "static/js/main.111470c0.js"
+    "static/js/main.aa25c098.js"
   ]
 }
