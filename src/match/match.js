@@ -193,12 +193,12 @@ export default function Match(props) {
                     role={window.sessionStorage.getItem("role")} />
             </HeaderDiv>
             <Div>
-                <MainDiv>
-                    {/* <Image src={GetImage(match)} />
+                <div>
+                    <Image src={GetImage(match)} />
                     <Date>{match.DateTime}</Date>
                     <Place>{match.Location}</Place>
-                    <Logcation>{match.Address}</Logcation> */}
-                </MainDiv>
+                    <Logcation>{match.Address}</Logcation>
+                </div>
                 <Map match={match} />
                 <Title>참석 {datas1.length}명</Title>
                 <AttendDiv>
