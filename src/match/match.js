@@ -192,7 +192,7 @@ export default function Match(props) {
                 <EditButton src={Edit} onClick={onEditClick}
                     role={window.sessionStorage.getItem("role")} />
             </HeaderDiv>
-            {/* <Div>
+            <Div>
                 <MainDiv>
                     <Image src={GetImage(match)} />
                     <Date>{match.DateTime}</Date>
@@ -200,15 +200,15 @@ export default function Match(props) {
                     <Logcation>{match.Address}</Logcation>
                 </MainDiv>
                 <Map match={match} />
-                <Title>참석 {datas1.length}명</Title>
+                {/* <Title>참석 {datas1.length}명</Title>
                 <AttendDiv>
                     {datas1 && datas1.map(d => Attender(d))}
                 </AttendDiv>
                 <Title>불참 {datas2.length}명</Title>
                 <AttendDiv>
                     {datas2 && datas2.map(d => Disattender(d))}
-                </AttendDiv>
-            </Div> */}
+                </AttendDiv> */}
+            </Div>
         </div>
     )
 }
