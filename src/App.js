@@ -13,16 +13,20 @@ import Dues from './dues/dues';
 import Attendances from './Attendance/Attendances';
 
 import CalendarImage from './images/calendar.svg'
+import WhiteCalendarImage from './images/calendar_white.svg'
 import MoneyImage from './images/money.svg'
+import WhiteMoneyImage from './images/money_white.svg'
 import DashboardImage  from './images/dashboard.svg'
 
 import AttendanceImage from './images/user.svg'
 import WhiteAttendanceImage from './images/user_whtie.svg'
 
-import WhiteCalendarImage from './images/calendar_white.svg'
-import WhiteMoneyImage from './images/money_white.svg'
+import PenaltyImage from './images/penalty.svg'
+import WhitePenaltyImage from './images/penalty_white.svg'
+
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Penalties from './Penalty/penalties';
 
 const LoginDiv = styled.div`
   max-width: 300px;
@@ -78,6 +82,13 @@ function App() {
       activeIcon: <Image src={WhiteMoneyImage}/>,
       onClick: () => { navigate('/dues') },
     },
+
+    {
+      title: "벌금",
+      icon: <Image src={PenaltyImage}/>,
+      activeIcon: <Image src={WhitePenaltyImage}/>,
+      onClick: () => { navigate('/penalties') },
+    },
   ]; 
 
   if (!login) {
@@ -98,6 +109,7 @@ function App() {
           <Route path="/match/edit/:id" exact element={<EditMatch/>}/>
           <Route path="/attendance" export element={<Attendances/>}/>
           <Route path="/dues" exact element={<Dues/>} />
+          <Route path="/penalties" exact element={<Penalties/>} />
         </Routes>
         <BottomNavigation
           items={bottomNavItems}
