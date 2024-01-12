@@ -66,7 +66,7 @@ export default function Dues() {
     var user = sessionStorage.getItem("user");
     var email = sessionStorage.getItem("email");
 
-    const [dues, setDues] = useState(false);
+    const [dues, setDues] = useState(false); 
 
     const onRendering = async () => {
         await GetDuesAtUser(user)
