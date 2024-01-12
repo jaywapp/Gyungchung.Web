@@ -51,7 +51,7 @@ const Grid = styled.div`
 
 const Text = styled.div`
     vertical-align: bottom;
-    margin-top: 30px;
+    margin-top: 30px; 
     padding: 10px;
     background-color: beige;
 `
