@@ -168,14 +168,14 @@ function Pairing(datas1, datas2){
 }
 
 function GetScore(result, expection){
-    if(expection == "참석"){
-        if(result == "참석"){
+    if(expection.Attendance == "참석"){
+        if(result.Result == "참석"){
             return 10;
         }
-        else if(result == "지각"){
+        else if(result.Result == "지각"){
             return 5;
         }
-        if(result == "결석"){
+        if(result.Result == "결석"){
             return -5
         }
     }
