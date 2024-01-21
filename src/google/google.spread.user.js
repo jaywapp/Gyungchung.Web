@@ -53,6 +53,7 @@ export async function GetUsersByInput(name, phone) {
                 "Name": value[0],
                 "Phone": value[1],
                 "Role": value[2],
+                "Position" : value[3],
             };
 
             arr.push(user);

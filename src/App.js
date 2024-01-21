@@ -11,6 +11,7 @@ import Match from './match/match';
 import EditMatch from './match/editmatch';
 import Dues from './dues/dues';
 import Attendances from './Attendance/Attendances';
+import Position from './position';
 
 import CalendarImage from './images/calendar.svg'
 import WhiteCalendarImage from './images/calendar_white.svg'
@@ -23,6 +24,9 @@ import WhiteAttendanceImage from './images/user_whtie.svg'
 
 import PenaltyImage from './images/penalty.svg'
 import WhitePenaltyImage from './images/penalty_white.svg'
+
+import FormationImage from './images/formation.svg'
+import WhiteFormationImage from './images/formation_white.svg'
 
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -89,6 +93,13 @@ function App() {
       activeIcon: <Image src={WhitePenaltyImage}/>,
       onClick: () => { navigate('/penalties') },
     },
+
+    {
+      title: "포지션",
+      icon: <Image src={FormationImage}/>,
+      activeIcon: <Image src={WhiteFormationImage}/>,
+      onClick: () => { navigate('/position') },
+    },
   ]; 
 
   if (!login) {
@@ -110,6 +121,7 @@ function App() {
           <Route path="/attendance" export element={<Attendances/>}/>
           <Route path="/dues" exact element={<Dues/>} />
           <Route path="/penalties" exact element={<Penalties/>} />
+          <Route path="/position" exact element={<Position/>} />
         </Routes>
         <BottomNavigation
           items={bottomNavItems}

@@ -86,13 +86,6 @@ const Button = styled.button`
 
 async function Authenticate(name, phone) {
 
-    if (name == "administrator" && phone == "0000") {
-        window.sessionStorage.setItem("user", "박준영");
-        window.sessionStorage.setItem("phone", "01076549816");
-
-        return true;
-    }
-
     var user = await GetUsersByInput(name, phone);
 
     if (user == null)
@@ -100,19 +93,9 @@ async function Authenticate(name, phone) {
 
     window.sessionStorage.setItem("user", user.Name);
     window.sessionStorage.setItem("phone", user.Phone);
-    // window.sessionStorage.setItem("role", user.Role);
+    window.sessionStorage.setItem("position", user.Position);
 
     return true;
-    // var users = await GetUsers();
-    // var array = Array.from(users);
-
-    // var result= false;
-
-    // array.forEach(user => {
-    //     result = result || (user.Name == name && user.Phone == phone);
-    // });
-
-    // return result;
 }
 
 function Login({ callBack }) {
@@ -131,10 +114,6 @@ function Login({ callBack }) {
 
         if (e) {
             alert("로그인에 성공하였습니다.");
-
-            window.sessionStorage.setItem("user", name);
-            window.sessionStorage.setItem("phone", phone);
-
             callBack();
         }
         else {

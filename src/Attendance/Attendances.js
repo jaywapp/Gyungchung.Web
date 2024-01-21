@@ -78,8 +78,8 @@ const ScoreDiv = styled.div`
     grid-column: 4;
 `
 
-export default function Attendances(){
-    
+export default function Attendances() {
+
     const [results, setResults] = useState(false);
     const [expections, setExpectations] = useState(false);
 
@@ -105,26 +105,26 @@ export default function Attendances(){
 
     return (
         <Div>
-             <HeaderDiv>
-            <NameDiv>{sessionStorage.getItem("user")}</NameDiv>
-            <DescDiv>님의 출석 점수는</DescDiv>
-            <TotalScoreDiv>{total}</TotalScoreDiv>
-            <DescDiv>점 입니다.</DescDiv>
-        </HeaderDiv>  
+            <HeaderDiv>
+                <NameDiv>{sessionStorage.getItem("user")}</NameDiv>
+                <DescDiv>님의 출석 점수는</DescDiv>
+                <TotalScoreDiv>{total}</TotalScoreDiv>
+                <DescDiv>점 입니다.</DescDiv>
+            </HeaderDiv>
 
-             <ColumnDiv>
+            <ColumnDiv>
                 <DateDiv>날짜</DateDiv>
                 <ExpectionDiv>참석여부</ExpectionDiv>
                 <ResultDiv>실제참석</ResultDiv>
                 <ScoreDiv>출석점수</ScoreDiv>
             </ColumnDiv>
 
-            {pairs && pairs.map(p=> Attendance(p))}
+            {pairs && pairs.map(p => Attendance(p))}
         </Div>
     )
 }
 
-function Attendance(pair){
+function Attendance(pair) {
 
     var isOld = false;
 
@@ -138,8 +138,8 @@ function Attendance(pair){
     )
 }
 
-function Pairing(datas1, datas2){
-    
+function Pairing(datas1, datas2) {
+
     var pairs = new Array();
 
     var results = Array.from(datas1);
@@ -149,13 +149,13 @@ function Pairing(datas1, datas2){
 
         expections.forEach(expection => {
 
-            if(result.Date == expection.Date){
+            if (result.Date == expection.Date) {
                 var pair = {
-                    "User" : result.User,
-                    "Date" : result.Date,
-                    "Expection" : expection.Attendance,
-                    "Result" : result.Result,
-                    "Score" : GetScore(result, expection),
+                    "User": result.User,
+                    "Date": result.Date,
+                    "Expection": expection.Attendance,
+                    "Result": result.Result,
+                    "Score": GetScore(result, expection),
                 };
 
                 pairs.push(pair);
@@ -167,18 +167,18 @@ function Pairing(datas1, datas2){
     return pairs;
 }
 
-function GetScore(result, expection){
-    if(expection.Attendance == "참석"){
-        if(result.Result == "참석"){
+function GetScore(result, expection) {
+    if (expection.Attendance == "참석") {
+        if (result.Result == "참석") {
             return 10;
         }
-        else if(result.Result == "지각"){
+        else if (result.Result == "지각") {
             return 5;
         }
-        if(result.Result == "결석"){
+        if (result.Result == "결석") {
             return -5
         }
     }
-    
+
     return 0;
 }
