@@ -60,7 +60,6 @@ const NameDiv = styled.div`
     font-weight: bold;
     margin-right: 10px;
     vertical-align: top;
-    margin-bottom: 20px;
 `
 
 const DescDiv = styled.div`
@@ -69,13 +68,13 @@ const DescDiv = styled.div`
     padding-top:16px;
 `
 
-const PreferDiv = styled.div`
-    font-size: xx-large;
-    font-weight: bold;
-    margin-left: 10px;
-    margin-right: 10px;
+const Text = styled.div`
+    text-align: left;
+    vertical-align: bottom;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: beige;
 `
-
 
 export default function Position(){
     var positions = GetDatas(sessionStorage.getItem("position"));
@@ -84,10 +83,9 @@ export default function Position(){
         <Div>
             <HeaderDiv>
                 <NameDiv>{sessionStorage.getItem("user")}</NameDiv>
-                <DescDiv>님의 선호 포지션은</DescDiv>
-                <PreferDiv>{sessionStorage.getItem("position")}</PreferDiv>
-                <DescDiv>입니다.</DescDiv>
+                <DescDiv>님의 선호 포지션입니다.</DescDiv>
             </HeaderDiv>
+            <Text>내용 변경이 필요할 경우 회장에게 연락주세요.</Text>
             <PositionsDiv> 
               {
                 datas.map(d=> PositionUnit(d, positions))

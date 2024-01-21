@@ -12,6 +12,7 @@ import Pitch from './../images/pitch.svg'
 import Beer from './../images/beer.svg'
 import Back from './../images/back.svg'
 import Edit from './../images/edit.svg'
+import Question from './../images/question.svg'
 
 const { kakao } = window;
 
@@ -75,7 +76,7 @@ const Title = styled.div`
    font-weight: bold;
    margin-top: 5%;
    margin-bottom: 5%;
-`;
+`; 
 
 const AttendentBlock = styled.div`
     display: inline-flex;
@@ -130,6 +131,9 @@ function GetImage(match) {
     }
     else if (match.Type == "회식") {
         return Beer;
+    }
+    else if (match.Type == "미정") {
+        return Question;
     }
 
     return "";
