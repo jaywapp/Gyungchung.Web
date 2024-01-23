@@ -117,7 +117,7 @@ export const datas =  [
             "ColumnSpan" : 0
         }, 
         {
-            "Eng" : "LB",
+            "Eng" : "RB",
             "Kor" : "우측 풀백",
             "Color" : "blue",
             "Row" : 6,
