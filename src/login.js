@@ -103,11 +103,11 @@ function Login({ callBack }) {
     const [phone, setPhone] = useState('')
 
     const handleName = (e) => {
-        setName(e.target.value)
+        setName(e.target.value.trim())
     }
 
     const handlePhone = (e) => {
-        setPhone(e.target.value)
+        setPhone(e.target.value.trim())
     }
 
     const afterLogin = (e) => {

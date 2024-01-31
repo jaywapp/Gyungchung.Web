@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import Complate from './../images/complate.svg'
 import Cancel from './../images/cancel.svg'
+import Moratorium  from './../images/moratorium.svg'
 
 const Div = styled.div`
     height: 50px;
@@ -31,8 +32,17 @@ const Content = styled.div`
 export function Due(due){
     return (
         <Div>
-            <Image src={(due.Payment == "납부") ? Complate : Cancel}/> 
+            <Image src={GetImage(due.Payment)}/> 
             <Content>{due.Month}월</Content>
         </Div>
     )
+} 
+
+function GetImage(payment) {
+    if (payment == "유예")
+        return Moratorium;
+    else if (payment == "미납")
+        return Cancel;
+    else
+        return Complate;
 }

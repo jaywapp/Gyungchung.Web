@@ -107,7 +107,7 @@ function CheckPayment(datas){
     var result = false;
 
     Array.from(datas).forEach(data => {
-        result = result || (data.Month < month && !data.Payment);
+        result = result || (data.Month < month && data.Payment != "미납");
     });
 
     return result;
