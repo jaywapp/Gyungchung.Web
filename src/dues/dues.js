@@ -83,7 +83,7 @@ export default function Dues() {
 
     return (
         <Div>
-            <WelcomMessage payment={payment}/>
+            <WelcomMessage value={payment}/>
             <Title>납부 계좌</Title>
             <Account/>
             <Title>납부 현황</Title>
@@ -107,13 +107,13 @@ function CheckPayment(datas){
     var result = false;
 
     Array.from(datas).forEach(data => {
-        result = result || (data.Month < month && data.Payment != "미납");
+        result = result || (data.Month < month && data.Payment == "미납");
     });
 
     return result;
 }
 
-function WelcomMessage(payment){
+function WelcomMessage(props){
 
     const today = new Date();
     var month = today.getMonth() + 1;
@@ -121,7 +121,7 @@ function WelcomMessage(payment){
 
     var msg = month + "월 " + day +"일 기준 "
 
-    if(payment == true)
+    if(props.value == true)
         msg += "미납 내역이 있어요."
     else
         msg += "제대로 납부하고 있어요."; 
@@ -130,7 +130,7 @@ function WelcomMessage(payment){
         <WelcomDiv>
             <WelcomeName>
                 {sessionStorage.getItem("user")}님!
-                <EmojiIcon src={(payment == true)? Bad : Good}/>
+                <EmojiIcon src={(props.value == true)? Bad : Good}/>
             </WelcomeName>
             
             <WelcomeMsg>
