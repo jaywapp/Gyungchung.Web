@@ -12,6 +12,7 @@ import EditMatch from './match/editmatch';
 import Dues from './dues/dues';
 import Attendances from './Attendance/Attendances';
 import Position from './position';
+import King from './Attendance/King';
 
 import CalendarImage from './images/calendar.svg'
 import WhiteCalendarImage from './images/calendar_white.svg'
@@ -27,6 +28,9 @@ import WhitePenaltyImage from './images/penalty_white.svg'
 
 import FormationImage from './images/formation.svg'
 import WhiteFormationImage from './images/formation_white.svg'
+
+import KingImage from './images/king.svg'
+import WhiteKingImage from './images/king_white.svg'
 
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -74,11 +78,17 @@ function App() {
       activeIcon: <Image src={WhiteCalendarImage}/>,
       onClick: () => { navigate('/matches') },
     },
-    {
+    {      
       title: "출석",
       icon: <Image src={AttendanceImage}/>,
       activeIcon: <Image src={WhiteCalendarImage}/>,
       onClick: () => { navigate('/attendance') },
+    },
+    {
+      title: "출석왕",
+      icon: <Image src={KingImage}/>,
+      activeIcon: <Image src={WhiteKingImage}/>,
+      onClick: () => { navigate('/king') },
     },
     {
       title: "회비",
@@ -119,6 +129,7 @@ function App() {
           <Route path="/match/:id" exact element={<Match/>}/>
           <Route path="/match/edit/:id" exact element={<EditMatch/>}/>
           <Route path="/attendance" export element={<Attendances/>}/>
+          <Route path="/king" export element={<King/>}/>
           <Route path="/dues" exact element={<Dues/>} />
           <Route path="/penalties" exact element={<Penalties/>} />
           <Route path="/position" exact element={<Position/>} />
