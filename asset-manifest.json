@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/Gyungchung.Web/static/css/main.1b89ea02.css",
-    "main.js": "/Gyungchung.Web/static/js/main.ff77d9b1.js",
+    "main.js": "/Gyungchung.Web/static/js/main.4ad07d79.js",
     "static/js/787.2b8a2760.chunk.js": "/Gyungchung.Web/static/js/787.2b8a2760.chunk.js",
     "static/media/logo.png": "/Gyungchung.Web/static/media/logo.2d154db55a1b0d25b9ad.png",
     "static/media/bad.svg": "/Gyungchung.Web/static/media/bad.a51a2252f9ebdbb2f65eed536700cecf.svg",
     "static/media/futsal.svg": "/Gyungchung.Web/static/media/futsal.dc135fc3359fc06943dcf119f5e66671.svg",
     "static/media/dance.svg": "/Gyungchung.Web/static/media/dance.f8425989bdc98f98eb2e8d0405d4cc81.svg",
+    "static/media/crown.svg": "/Gyungchung.Web/static/media/crown.613d3f7fd1c067d94cec912e72de076c.svg",
     "static/media/formation.svg": "/Gyungchung.Web/static/media/formation.73d023d3d9f5e4bcc369ad96a7ec1095.svg",
     "static/media/formation_white.svg": "/Gyungchung.Web/static/media/formation_white.6a12b191f74f6e49e5762c0d61d6e6c4.svg",
     "static/media/money.svg": "/Gyungchung.Web/static/media/money.27f525d9dc03b03f8cd81cf49b30559f.svg",
@@ -16,6 +17,11 @@
     "static/media/beer.svg": "/Gyungchung.Web/static/media/beer.b4a7207d8ae3c238e038bff65d9bec46.svg",
     "static/media/pitch.svg": "/Gyungchung.Web/static/media/pitch.2c7e12ebca723e54daf6b3ca1f22f917.svg",
     "static/media/good.svg": "/Gyungchung.Web/static/media/good.1a312a45c13504a4e422a2fc754be8be.svg",
+    "static/media/bronze.svg": "/Gyungchung.Web/static/media/bronze.8ad458ad9ccf893bc773a235ba6f6cba.svg",
+    "static/media/silver.svg": "/Gyungchung.Web/static/media/silver.c1558d65e388d9b61589e970c848bed5.svg",
+    "static/media/gold.svg": "/Gyungchung.Web/static/media/gold.55b0cb742878864665d906422e5ac750.svg",
+    "static/media/king.svg": "/Gyungchung.Web/static/media/king.93d751b4c83ecb8035947197b530180e.svg",
+    "static/media/king_white.svg": "/Gyungchung.Web/static/media/king_white.46b299ee5d8c64920ede3ef4eaeb7fa8.svg",
     "static/media/dashboard.svg": "/Gyungchung.Web/static/media/dashboard.509c23665f9bdcee38d0663fcf1b8014.svg",
     "static/media/calendar.svg": "/Gyungchung.Web/static/media/calendar.df79bc2e9fd01872a56fa18334f1c5cf.svg",
     "static/media/calendar_white.svg": "/Gyungchung.Web/static/media/calendar_white.4f4df2681fdf994bca08987691422660.svg",
@@ -30,11 +36,11 @@
     "static/media/back.svg": "/Gyungchung.Web/static/media/back.54697fc843d6a5c596c721c91ba2fa27.svg",
     "index.html": "/Gyungchung.Web/index.html",
     "main.1b89ea02.css.map": "/Gyungchung.Web/static/css/main.1b89ea02.css.map",
-    "main.ff77d9b1.js.map": "/Gyungchung.Web/static/js/main.ff77d9b1.js.map",
+    "main.4ad07d79.js.map": "/Gyungchung.Web/static/js/main.4ad07d79.js.map",
     "787.2b8a2760.chunk.js.map": "/Gyungchung.Web/static/js/787.2b8a2760.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b89ea02.css",
-    "static/js/main.ff77d9b1.js"
+    "static/js/main.4ad07d79.js"
   ]
 }
