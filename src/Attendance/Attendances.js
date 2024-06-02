@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GetAttendenceResultsOfUser, GetAttendencesOfUser } from "../google/google.spread.attend";
+import { GetAttendenceResultsOfUser, GetAttendencesOfUser, GetScoresOfUser, GetTotalScoreOfUser, GetTotalScores } from "../google/google.spread.attend";
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToDateParameter } from "../common";
@@ -82,33 +82,34 @@ export default function Attendances() {
 
     const [results, setResults] = useState(false);
     const [expections, setExpectations] = useState(false);
+    const [scores, setScores] = useState(false);
+    const [totalScore, setTotalScore] = useState(false);
 
     const onRendering = async () => {
         var user = sessionStorage.getItem("user");
 
         await GetAttendenceResultsOfUser(user)
             .then(r => setResults(r));
-        await GetAttendencesOfUser(user)
+        await GetAttendencesOfUser(user)        
             .then(r => setExpectations(r));
+        await GetScoresOfUser(user)
+            .then(r => setScores(r));
+        await GetTotalScoreOfUser(user)
+            .then(r=> setTotalScore(r));
     }
 
     useEffect(() => {
         onRendering();
     }, [])
 
-    var pairs = Pairing(results, expections);
-    var total = 0;
-
-    pairs.forEach(pair => {
-        total += pair.Score;
-    })
+    var pairs = Pairing(results, expections, scores);
 
     return (
         <Div>
             <HeaderDiv>
                 <NameDiv>{sessionStorage.getItem("user")}</NameDiv>
                 <DescDiv>님의 출석 점수는</DescDiv>
-                <TotalScoreDiv>{total}</TotalScoreDiv>
+                <TotalScoreDiv>{totalScore.TotalScore}</TotalScoreDiv>
                 <DescDiv>점 입니다.</DescDiv>
             </HeaderDiv>
 
@@ -138,27 +139,34 @@ function Attendance(pair) {
     )
 }
 
-function Pairing(datas1, datas2) {
+function Pairing(datas1, datas2,datas3) {
 
     var pairs = new Array();
 
     var results = Array.from(datas1);
     var expections = Array.from(datas2);
+    var scores = Array.from(datas3);
 
     results.forEach(result => {
 
         expections.forEach(expection => {
 
             if (result.Date == expection.Date) {
-                var pair = {
-                    "User": result.User,
-                    "Date": result.Date,
-                    "Expection": expection.Attendance,
-                    "Result": result.Result,
-                    "Score": GetScore(result, expection),
-                };
 
-                pairs.push(pair);
+                scores.forEach(score => {
+                    if (result.Date == score.Date) {
+
+                        var pair = {
+                            "User": result.User,
+                            "Date": result.Date,
+                            "Expection": expection.Attendance,
+                            "Result": result.Result,
+                            "Score": score.Score,
+                        };
+
+                        pairs.push(pair);
+                    }
+                })
             }
 
         })

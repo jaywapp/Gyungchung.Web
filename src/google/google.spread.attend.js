@@ -5,6 +5,8 @@ import { ToDateParameter } from '../common';
 const ID = "1Yc9bKon1yJw1R2KDteb_c_nNLWrECgO0UZsm5UdD7UM";
 export const SHEET_ATTENDANCE = "참석여부";
 export const SHEET_ATTENDANCE_RESULT = "출석부";
+export const SHEET_SCORE = "출석점수";
+export const SHEET_TOTAL_SCORE = "통합출석점수";
 
 export async function GetAttendences() {
     var uri = GetAPI(SHEET_ATTENDANCE);
@@ -299,6 +301,130 @@ export async function GetAttendenceResultsOfDate(date) {
     });
 
     return arr;
+}
+
+export async function GetScoresOfUser(user) {
+    var uri = GetAPI(SHEET_SCORE);
+    const response = await axios.get(uri);
+
+    if (response.status !== 200) {
+        throw new Error();
+    }
+
+    var arr = new Array();
+    var values = Array.from(response.data.values);
+    var idx = 0;
+
+    var columns = new Array();
+
+    values.forEach(value => {
+
+        if (idx == 0) {
+            columns = Array.from(value);
+        }
+
+        else {
+
+            var items = Array.from(value);
+            var itemIdx = 0;
+            var name = items[0];
+
+            if (name == user) {
+
+                items.forEach(item => {
+                    if (itemIdx != 0) {
+                        var attendence = {
+                            "User": name,
+                            "Date": columns[itemIdx],
+                            "Score": item,
+                        };
+
+                        arr.push(attendence);
+                    }
+
+                    itemIdx++;
+                });
+            }
+        }
+
+        idx++;
+    });
+
+    return arr;
+}
+
+
+export async function GetTotalScores() {
+    var uri = GetAPI(SHEET_TOTAL_SCORE);
+    const response = await axios.get(uri);
+
+    if (response.status !== 200) {
+        throw new Error();
+    }
+
+    var arr = new Array();
+    var values = Array.from(response.data.values);
+    var idx = 0;
+
+    var columns = new Array();
+
+    values.forEach(value => {
+
+        if (idx == 0) {
+            columns = Array.from(value);
+        }
+
+        else {
+
+            var items = Array.from(value);
+            var name = items[0];
+            var score = items[1];
+
+            var totalScore = {
+                "User": name,
+                "TotalScore": score,
+            };
+
+            arr.push(totalScore);
+        }
+
+        idx++;
+    });
+
+    return arr;
+}
+
+export async function GetTotalScoreOfUser(user) {
+    var uri = GetAPI(SHEET_TOTAL_SCORE);
+    const response = await axios.get(uri);
+
+    if (response.status !== 200) {
+        throw new Error();
+    }
+
+    var arr = new Array();
+    var values = Array.from(response.data.values);
+
+    values.forEach(value => {
+        var items = Array.from(value);
+        var name = items[0];
+        var score = items[1];
+
+        if (name == user) {
+
+            var totalScore = {
+                "User": name,
+                "TotalScore": score,
+            };
+
+            arr.push(totalScore);
+        }
+    });
+
+    if (arr.length == 1)
+        return arr[0];
+    else
+        return null;
 }
 
 export async function SetAttendenceResult(col, row, result) {
